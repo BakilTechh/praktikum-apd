@@ -71,21 +71,23 @@
 
 # print(c)
 
-Nilai = {
-"Matematika" : 80,
-"B. Indonesia" : 90,
-"B. Inggris" : 81
-}
-#sebelum Setdefault
-print(Nilai)
-print("")
-#menggunakan setdefault
-print("Nilai : ", Nilai.setdefault("Kimia", 70))
-print("")
-#setelah menggunakan setdefault
-print(Nilai)
-{'Matematika': 80, 'B. Indonesia': 90, 'B. Inggris':
-81}
-Nilai : 70
-{'Matematika': 80, 'B. Indonesia': 90, 'B. Inggris':
-81, 'Kimia': 70}
+# Nilai = {
+# "Matematika" : 80,
+# "B. Indonesia" : 90,
+# "B. Inggris" : 81
+# }
+# #sebelum Setdefault
+# print(Nilai)
+# print("")
+# #menggunakan setdefault
+# print("Nilai : ", Nilai.setdefault("Kimia", 70))
+# print("")
+# #setelah menggunakan setdefault
+# print(Nilai)
+# {'Matematika': 80, 'B. Indonesia': 90, 'B. Inggris':
+# 81}
+# Nilai : 70
+# {'Matematika': 80, 'B. Indonesia': 90, 'B. Inggris':
+# 81, 'Kimia': 70}
+
+mahasiswa = [["daffa" , "dante", "bakil"]] , [["rafi" , "nuron" , ""]]
