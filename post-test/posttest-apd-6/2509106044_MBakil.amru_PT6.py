@@ -4,6 +4,7 @@
 # SET AND DICTIONARY 
 import os
 from time import sleep
+os.system('cls')
 
 
 Orang = {
@@ -54,8 +55,10 @@ while True:
                 break
             else:
                 print("Role tidak sesuai.\n")
+                sleep(2)
         else:
             print("Username atau password salah.\n")
+            sleep(2)
 
     elif pilihan_login == "3":
         print("\n=== Hai member baru, buat dulu username dan password mu ===")
@@ -64,10 +67,11 @@ while True:
 
         if username_baru in Orang:
             print("Username sudah dipakai. Silakan cari nama yg lain.\n")
+            sleep(2)
         else:
             Orang[username_baru] = {"password": password_baru, "role": "member"}
             print("Registrasi berhasil Silakan lanjut login sebagai member.\n")
-            sleep (3)
+            sleep(3)
 
 if role:
     os.system('cls')
@@ -245,12 +249,14 @@ if role:
 
                 hapus_input = input("Pilih nomor hero yang ingin dihapus: ")
                 if hapus_input in [str(n) for n in heroes]:
-                    konfirmasi = input("Yakin ingin menghapus hero ini? (y/Y) untuk menghapus: ")
-                    if konfirmasi == "y OR Y":
+                    konfirmasi = input("Yakin ingin menghapus hero ini? (y) untuk menghapus: ")
+                    if konfirmasi == "y":
                         del heroes[int(hapus_input)]
+                        os.system('cls')
                         print("Hero berhasil dihapus.")
                         sleep(2)
                     else:
+                        os.system('cls')
                         print("Penghapusan dibatalkan.")
                         sleep(2)
                 else:
