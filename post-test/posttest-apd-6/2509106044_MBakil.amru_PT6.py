@@ -226,7 +226,7 @@ if role:
                                     }
                                     os.system('cls')
                                     print("Hero berhasil diubah.")
-                                    sleep (2)
+                                    sleep(2)
                 else:
                     print("Nomor tidak valid.")
 

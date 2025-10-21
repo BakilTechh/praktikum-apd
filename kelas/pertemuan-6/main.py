@@ -90,4 +90,4 @@
 # {'Matematika': 80, 'B. Indonesia': 90, 'B. Inggris':
 # 81, 'Kimia': 70}
 
-mahasiswa = [["daffa" , "dante", "bakil"]] , [["rafi" , "nuron" , ""]]
+# mahasiswa = [["daffa" , "dante", "bakil"]] , [["rafi" , "nuron" , ""]]
