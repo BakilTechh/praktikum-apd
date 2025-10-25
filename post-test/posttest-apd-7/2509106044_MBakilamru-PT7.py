@@ -1,7 +1,7 @@
 # POSTTEST 7
 # MUHAMMAD BAKIL AMRU 
 # 2509106044
-# SET AND DICTIONARY 
+# FUNGSI DAN PROSEDUR DALAM PROGRAM TIPE DATA DICTIONARY
 
 import os
 from time import sleep
@@ -123,16 +123,34 @@ def hapus_hero():
         if nomor in heroes:
             hero = heroes[nomor]
             print(f"\nKamu akan menghapus hero: {hero['nama']} ({hero['lane']} - {hero['role']} - {hero['status']})")
-            konfirmasi = input("Yakin ingin menghapus hero ini? (y/Y untuk hapus): ")
-            if konfirmasi.lower() == "y":
+            print("1. Ya, hapus hero ini")
+            print("2. Tidak, batalkan")
+            konfirmasi = input("Masukkan pilihan (1/2): ")
+            if konfirmasi == "1":
                 del heroes[nomor]
+                sleep(2)
+                os.system('cls')
                 print("Hero berhasil dihapus.")
+                sleep(1)
             else:
                 print("Penghapusan dibatalkan.")
         else:
             print("Nomor hero tidak ditemukan.")
     except:
-        print("Anda menggunakan input yang salah, harus menggunakan angka yang tertera.")
+        print("Input tidak valid. Harus berupa angka.")
+        return
+
+    #  Konfirmasi untuk menghapus lagi (rekursif)
+    print("\nApakah kamu ingin menghapus hero lainnya?")
+    print("1. Ya, lanjut hapus")
+    print("2. Tidak, kembali ke menu")
+    ulang = input("Masukkan pilihan (1/2): ")
+    if ulang == "1":
+        os.system('cls')
+        hapus_hero()  # bagian rekursif
+    else:
+        os.system('cls')
+        print("Kembali ke menu utama.")
 
 def ubah_hero():
     if len(heroes) == 0:
@@ -207,7 +225,7 @@ def hitung_mundur(n):
     else:
         print(f"Keluar dalam {n} detik...")
         sleep(1)
-        hitung_mundur(n - 1)  # BAGIAN REKURSIFNYA
+        hitung_mundur(n - 1)  # INI JUGA TERMASUK BAGIAN REKURSIFNYA
 
 def konfirmasi_keluar():
     pilihan = input("Yakin ingin keluar? (y/Y untuk keluar): ")
@@ -292,11 +310,11 @@ if role:
             if len(heroes) == 0:
                 print("Tidak ada hero yang overpowered.")
             else:
-                tampilkan_semua_hero()
+                tampilkan_semua_hero() # FUNGSI TANPA PARAMETER PERTAMA
                 sleep(1)
-                jumlah_hero()
+                jumlah_hero() # FUNGSI TANPA PARAMETER KEDUA
                 sleep(1)
-                print("\n== BAGIAN LANE DARI HERONYA==")
+                print("\n== BAGIAN LANE DARI HERONYA==") # FUNGSI DENGAN PARAMETER YANG PERTAMA
                 tampilkan_hero_berdasarkan_lane("Mid Lane")
                 sleep(1)
                 tampilkan_hero_berdasarkan_lane("Exp Lane")
@@ -308,8 +326,8 @@ if role:
                 tampilkan_hero_berdasarkan_lane("Jungler")
                 sleep(1)
                 print()
-                print("== BAGIAN STATUS DARI HERONYA==")
-                cari_hero_berstatus("Auto ban")
+                print("== BAGIAN STATUS DARI HERONYA==") # FUNGSI DENGAN PARAMETER YANG KEDUA
+                cari_hero_berstatus("Auto ban") 
                 sleep(1)
                 cari_hero_berstatus("Wajib pick")
                 sleep(1)
@@ -320,7 +338,7 @@ if role:
         # 2. Menambahkan Hero
         elif pilihan == "2" and role == "admin":
             os.system('cls')
-            tambah_hero()
+            tambah_hero() # 
             sleep(2)
 
         # 3. Mengubah Hero
@@ -341,5 +359,6 @@ if role:
 
         # Jika input tidak valid
         else:
+            os.system('cls')
             print("Pilihan menu tidak valid.")
             sleep(2)
