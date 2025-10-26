@@ -124,14 +124,14 @@ def hapus_hero():
             hero = heroes[nomor]
             print(f"\nKamu akan menghapus hero: {hero['nama']} ({hero['lane']} - {hero['role']} - {hero['status']})")
             print("1. Ya, hapus hero ini")
-            print("2. Tidak, batalkan")
+            print("2. Ga, gajadi deh")
             konfirmasi = input("Masukkan pilihan (1/2): ")
             if konfirmasi == "1":
                 del heroes[nomor]
                 sleep(2)
                 os.system('cls')
                 print("Hero berhasil dihapus.")
-                sleep(1)
+                # sleep(1)
             else:
                 print("Penghapusan dibatalkan.")
         else:
@@ -143,13 +143,13 @@ def hapus_hero():
     #  Konfirmasi untuk menghapus lagi (rekursif)
     print("\nApakah kamu ingin menghapus hero lainnya?")
     print("1. Ya, lanjut hapus")
-    print("2. Tidak, kembali ke menu")
+    print("2. Ga, gajadi deh.")
     ulang = input("Masukkan pilihan (1/2): ")
     if ulang == "1":
-        os.system('cls')
+        # os.system('cls')
         hapus_hero()  # bagian rekursif
     else:
-        os.system('cls')
+        # os.system('cls')
         print("Kembali ke menu utama.")
 
 def ubah_hero():
@@ -333,7 +333,7 @@ if role:
                 sleep(1)
                 print()
                 print("List ini adalah update patch terbaru dari hero-hero yang wajib pick/ban di Mobile Legends(PATCH OKTOBER AKHIR).")
-            sleep(2)
+            sleep(3)
 
         # 2. Menambahkan Hero
         elif pilihan == "2" and role == "admin":
