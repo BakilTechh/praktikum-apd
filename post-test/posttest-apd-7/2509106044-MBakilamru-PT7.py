@@ -240,9 +240,10 @@ def konfirmasi_keluar():
 # === KITA AKAN LOGIN KE MENU UTAMA ===
 
 # MASUK KE BAGIAN REGISTRASI
+
 while True:  # LOOP LOGIN
     os.system('cls')
-    print("=== Silahkan login/regist ===")
+    print("=== Selamat datang di program Tier List hero Wajib Pick/Ban di Mobile Legends (PATCH OKTOBER AKHIR) ===")
     print("1. Login Admin")
     print("2. Login Member")
     print("3. Registrasi")
@@ -269,10 +270,10 @@ while True:  # LOOP LOGIN
                 sleep(2)
                 continue  # kembali ke login
 
- #  MASUK KE MENU UTAMA
+           #  MASUK KE MENU UTAMA
             keluar = False
             os.system('cls')
-            print("Selamat Datang yang mulia :", username, f"({role})", ", apa yang ingin anda lakukan?")
+            print("Selamat Datang yang mulia :", username , f"({role})", ", apa yang ingin anda lakukan?")
             sleep(2)
             while not keluar:
 
@@ -282,7 +283,7 @@ while True:  # LOOP LOGIN
                     print("2. Tambah Hero")
                     print("3. Ubah Hero")
                     print("4. Hapus Hero")
-                print("0. Keluar ke login")
+                print("0. Kembali ke login")
 
                 pilihan = input("Pilih menu: ")
 
