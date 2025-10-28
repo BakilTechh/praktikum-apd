@@ -131,7 +131,7 @@ def hapus_hero():
                 sleep(2)
                 os.system('cls')
                 print("Hero berhasil dihapus.")
-                # sleep(1)
+                sleep(1)
             else:
                 print("Penghapusan dibatalkan.")
         else:
@@ -143,13 +143,13 @@ def hapus_hero():
     #  Konfirmasi untuk menghapus lagi (rekursif)
     print("\nApakah kamu ingin menghapus hero lainnya?")
     print("1. Ya, lanjut hapus")
-    print("2. Ga, gajadi deh.")
+    print("2. Ga, gaada.")
     ulang = input("Masukkan pilihan (1/2): ")
     if ulang == "1":
-        # os.system('cls')
+        os.system('cls')
         hapus_hero()  # bagian rekursif
     else:
-        # os.system('cls')
+        os.system('cls')
         print("Kembali ke menu utama.")
 
 def ubah_hero():
@@ -220,10 +220,10 @@ def ubah_hero():
 # konfirmasi jika pilihan 0
 def hitung_mundur(n):
     if n == 0:
-        print("Program akan disiapkan untuk keluar...\n")
-        sleep(2)
+        print("Berhasil\n")
+        sleep(1)
     else:
-        print(f"Keluar dalam {n} detik...")
+        print(f"Bersiap dalam {n} detik...")
         sleep(1)
         hitung_mundur(n - 1)  # INI JUGA TERMASUK BAGIAN REKURSIFNYA
 
@@ -231,7 +231,7 @@ def konfirmasi_keluar():
     pilihan = input("Yakin ingin keluar? (y/Y untuk keluar): ")
     if pilihan.lower() == "y":
         hitung_mundur(3)  # Fungsi rekursifnya dipanggil di sini
-        print("Baik, sampai jumpa", username, f"({role})", "kami tunggu update hero selanjutnya")
+        print("Baik, sampai jumpa. Kami tunggu diupdate hero selanjutnya.")
         return True
     else:
         print("Kembali ke menu.")
@@ -240,36 +240,119 @@ def konfirmasi_keluar():
 # === KITA AKAN LOGIN KE MENU UTAMA ===
 
 # MASUK KE BAGIAN REGISTRASI
-while True:
+while True:  # LOOP LOGIN
     os.system('cls')
-    print("=== Selamat datang di program Tier list Hero Wajib pick/ban untuk hero Mobile Legends ===")
-    print("Siapa yang ingin login?")
-    print("1. Admin")
-    print("2. Member")
-    print("3. Mendaftar sebagai member")
-    pilihan_login = input("Masukkan pilihan (1/2/3): ")
+    print("=== Silahkan login/regist ===")
+    print("1. Login Admin")
+    print("2. Login Member")
+    print("3. Registrasi")
+    print("0. Keluar dari program")
+    pilihan_login = input("Masukkan pilihan: ")
 
-    if pilihan_login not in ["1", "2", "3"]:
-        print("Pilihan tidak valid. Silakan pilih 1, 2, atau 3.\n")
-        sleep(2)
-        continue
+    if pilihan_login == "0":
+      if konfirmasi_keluar():
+          break  # keluar dari program
+      else:
+          continue  # kembali ke menu login
 
-    if pilihan_login in ["1", "2"]:
+    elif pilihan_login == "1" or pilihan_login == "2":
         username = input("Username: ")
         password = input("Password: ")
 
         if username in Orang and Orang[username]["password"] == password:
             if pilihan_login == "1" and Orang[username]["role"] == "admin":
                 role = "admin"
-                break
             elif pilihan_login == "2" and Orang[username]["role"] == "member":
                 role = "member"
-                break
             else:
-                print("Role tidak sesuai.\n")
+                print("Role tidak sesuai.")
                 sleep(2)
+                continue  # kembali ke login
+
+ #  MASUK KE MENU UTAMA
+            keluar = False
+            os.system('cls')
+            print("Selamat Datang yang mulia :", username, f"({role})", ", apa yang ingin anda lakukan?")
+            sleep(2)
+            while not keluar:
+
+                print("=== MENU UTAMA ===")
+                print("1. Lihat Hero")
+                if role == "admin":
+                    print("2. Tambah Hero")
+                    print("3. Ubah Hero")
+                    print("4. Hapus Hero")
+                print("0. Keluar ke login")
+
+                pilihan = input("Pilih menu: ")
+
+                if pilihan == "0":
+                    print("Kembali ke menu login...")
+                    hitung_mundur(3)
+                    keluar = True  #  kembali ke login
+                    sleep(1)
+                    os.system('cls')
+                    
+                # 1. Melihat Tier List
+                elif pilihan == "1":
+                    # os.system('cls')
+                    print("\nLIST HERO YANG META (PATCH OKTOBER):")
+                    sleep(1)
+                    if len(heroes) == 0:
+                      print("Tidak ada hero yang overpowered.")
+                    else:
+                      tampilkan_semua_hero() # FUNGSI TANPA PARAMETER PERTAMA
+                      sleep(1)
+                      jumlah_hero() # FUNGSI TANPA PARAMETER KEDUA
+                      sleep(1)
+                      print("\n== BAGIAN LANE DARI HERONYA==") # FUNGSI DENGAN PARAMETER YANG PERTAMA
+                      tampilkan_hero_berdasarkan_lane("Mid Lane")
+                      sleep(1)
+                      tampilkan_hero_berdasarkan_lane("Exp Lane")
+                      sleep(1)
+                      tampilkan_hero_berdasarkan_lane("Roaming")
+                      sleep(1)
+                      tampilkan_hero_berdasarkan_lane("Gold Lane")
+                      sleep(1)
+                      tampilkan_hero_berdasarkan_lane("Jungler")
+                      sleep(1)
+                      print()
+                      print("== BAGIAN STATUS DARI HERONYA==") # FUNGSI DENGAN PARAMETER YANG KEDUA
+                      cari_hero_berstatus("Auto ban") 
+                      sleep(1)
+                      cari_hero_berstatus("Wajib pick")
+                      sleep(1)
+                      print()
+                      print("List ini adalah update patch terbaru dari hero-hero yang wajib pick/ban di Mobile Legends(PATCH OKTOBER AKHIR).")
+                      print("segera hubungi admin untuk menambahkan/merubah/hapus hero selanjutnya.")
+                      print()
+                    sleep(3)
+                    
+                # 2. Menambahkan Hero
+                elif pilihan == "2" and role == "admin":
+                    os.system('cls')
+                    tambah_hero()
+                    sleep(2)
+
+                # 3. Mengubah Hero
+                elif pilihan == "3" and role == "admin":
+                    os.system('cls')
+                    ubah_hero()
+                    sleep(2)
+                    
+                # 4. Menghapus Hero
+                elif pilihan == "4" and role == "admin":
+                    os.system('cls')
+                    hapus_hero()
+                    sleep(2)
+
+                # Jika input tidak valid
+                else:
+                    print("Pilihan tidak valid.")
+                    sleep(2)
+
         else:
-            print("Username atau password salah.\n")
+            print("Username atau password salah.")
             sleep(2)
 
     elif pilihan_login == "3":
@@ -284,81 +367,3 @@ while True:
             Orang[username_baru] = {"password": password_baru, "role": "member"}
             print("Registrasi berhasil Silakan lanjut login sebagai member.\n")
             sleep(3)
-
-# === MENU UTAMA ===
-if role:
-    os.system('cls')
-    print("Selamat Datang yang mulia", username, f"({role})", "apa yang ingin anda lakukan?")
-    keluar = False
-
-    while not keluar:
-        print("\n=== MENU ===")
-        print("1. Melihat Tier list Hero")
-        if role == "admin":
-            print("2. Menambahkan Hero")
-            print("3. Mengubah Hero")
-            print("4. Menghapus Hero")
-        print("0. Keluar")
-
-        pilihan = input("Pilih menu: ")
-
-        # 1. Melihat Tier List
-        if pilihan == "1":
-            os.system('cls')
-            print("\nLIST HERO YANG META (PATCH OKTOBER):")
-            sleep(1)
-            if len(heroes) == 0:
-                print("Tidak ada hero yang overpowered.")
-            else:
-                tampilkan_semua_hero() # FUNGSI TANPA PARAMETER PERTAMA
-                sleep(1)
-                jumlah_hero() # FUNGSI TANPA PARAMETER KEDUA
-                sleep(1)
-                print("\n== BAGIAN LANE DARI HERONYA==") # FUNGSI DENGAN PARAMETER YANG PERTAMA
-                tampilkan_hero_berdasarkan_lane("Mid Lane")
-                sleep(1)
-                tampilkan_hero_berdasarkan_lane("Exp Lane")
-                sleep(1)
-                tampilkan_hero_berdasarkan_lane("Roaming")
-                sleep(1)
-                tampilkan_hero_berdasarkan_lane("Gold Lane")
-                sleep(1)
-                tampilkan_hero_berdasarkan_lane("Jungler")
-                sleep(1)
-                print()
-                print("== BAGIAN STATUS DARI HERONYA==") # FUNGSI DENGAN PARAMETER YANG KEDUA
-                cari_hero_berstatus("Auto ban") 
-                sleep(1)
-                cari_hero_berstatus("Wajib pick")
-                sleep(1)
-                print()
-                print("List ini adalah update patch terbaru dari hero-hero yang wajib pick/ban di Mobile Legends(PATCH OKTOBER AKHIR).")
-            sleep(3)
-
-        # 2. Menambahkan Hero
-        elif pilihan == "2" and role == "admin":
-            os.system('cls')
-            tambah_hero() # 
-            sleep(2)
-
-        # 3. Mengubah Hero
-        elif pilihan == "3" and role == "admin":
-            os.system('cls')
-            ubah_hero()
-            sleep(2)
-
-        # 4. Menghapus Hero
-        elif pilihan == "4" and role == "admin":
-            os.system('cls')
-            hapus_hero()
-            sleep(2)
-
-        # 0. Keluar
-        elif pilihan == "0":
-            keluar = konfirmasi_keluar()
-
-        # Jika input tidak valid
-        else:
-            os.system('cls')
-            print("Pilihan menu tidak valid.")
-            sleep(2)
