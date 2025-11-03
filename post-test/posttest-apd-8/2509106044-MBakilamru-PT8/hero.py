@@ -30,9 +30,7 @@ def cari_hero_berstatus(status):
 
 def tambah_hero():
     nama = input("Nama Hero: ")
-    if any(char in "0123456789" for char in nama):
-        print("Nama tidak boleh mengandung angka.")
-        return
+    print()
 
     # Pilih Lane
     lane = inquirer.prompt([
@@ -65,20 +63,31 @@ def hapus_hero():
         print("Belum ada hero untuk dihapus.")
         return
 
+    # Buat mapping dari urutan tampil ke key asli
+    hero_keys = list(heroes.keys())
+
     print("\nDAFTAR HERO:")
-    tampilkan_semua_hero()
+    tabel = PrettyTable()
+    tabel.field_names = ["No", "Hero", "Lane", "Role", "Status"]
+    for i, key in enumerate(hero_keys, start=1):
+        hero = heroes[key]
+        tabel.add_row([i, hero["nama"], hero["lane"], hero["role"], hero["status"]])
+    print(tabel)
 
     hapus_input = input("Masukkan nomor hero yang ingin dihapus: ")
     try:
-        nomor = int(hapus_input)
-        if nomor in heroes:
-            hero = heroes[nomor]
+        nomor_tampil = int(hapus_input)
+        if 1 <= nomor_tampil <= len(hero_keys):
+            key_asli = hero_keys[nomor_tampil - 1]
+            hero = heroes[key_asli]
+
             print(f"\nKamu akan menghapus hero: {hero['nama']} ({hero['lane']} - {hero['role']} - {hero['status']})")
             konfirmasi = inquirer.prompt([
                 inquirer.List("konfirmasi", message="Konfirmasi penghapusan", choices=["Ya", "Tidak"])
             ])["konfirmasi"]
+
             if konfirmasi == "Ya":
-                del heroes[nomor]
+                del heroes[key_asli]
                 sleep(2)
                 os.system('cls')
                 print("Hero berhasil dihapus.")

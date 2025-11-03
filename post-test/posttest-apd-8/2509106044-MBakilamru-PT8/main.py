@@ -29,7 +29,7 @@ while True:
     os.system('cls')
     print("====================================")
     print(f"Anda sudah memilih: {pilihan_login}")
-    print("====================================")
+    print("====================================\n")
     sleep(1)
     if pilihan_login == "Keluar dari program":
         if konfirmasi_keluar():
