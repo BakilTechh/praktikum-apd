@@ -1,3 +1,8 @@
+#POSTTEST APD 8
+#MUHAMMAD BAKIL AMRU
+#2509106044
+# UNTUK MENJALANKAN PROGRAM INI, RUN PADA FILE INI ATAU MAIN.PY
+
 import os
 from time import sleep
 import inquirer  
@@ -78,7 +83,7 @@ while True:
                     os.system('cls')
 
                 elif pilihan == "Lihat Hero":
-                    print("\nLIST HERO YANG META (PATCH OKTOBER):")
+                    print("\nLIST HERO YANG META (PATCH NOVEMBER):")
                     sleep(1)
                     if len(heroes) == 0:
                         print("Tidak ada hero yang overpowered.")
@@ -95,7 +100,7 @@ while True:
                         for status in ["Auto ban", "Wajib pick"]:
                             cari_hero_berstatus(status)
                             sleep(1)
-                        print("\nList ini adalah update patch terbaru dari hero-hero yang wajib pick/ban di Mobile Legends (PATCH OKTOBER AKHIR).")
+                        print("\nList ini adalah update patch terbaru dari hero-hero yang wajib pick/ban di Mobile Legends (PATCH NOVEMBER AWAL).")
                         print("Segera hubungi admin untuk menambahkan/merubah/menghapus hero selanjutnya.\n")
                     input("Tekan ENTER untuk kembali ke menu...")
 
@@ -119,12 +124,12 @@ while True:
             sleep(2)
 
     elif pilihan_login == "Registrasi":
-        print("\n=== Hai member baru, buat dulu username dan password mu ===")
+        print("\n=== Hai member baru, buat dulu username dan password kamu ===")
         username_baru = input("Masukkan username baru: ")
         password_baru = input("Masukkan password baru: ")
 
         if username_baru in Orang:
-            print("Username sudah dipakai. Silakan cari nama yg lain.\n")
+            print("Username sudah dipakai. Silakan cari nama yang lain.\n")
             sleep(2)
         else:
             Orang[username_baru] = {"password": password_baru, "role": "member"}
