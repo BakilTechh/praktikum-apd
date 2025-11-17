@@ -1,6 +1,6 @@
-import matplotlib.pyplot as plt 
-import pandas as pd 
-import numpy as np 
+# import matplotlib.pyplot as plt 
+# import pandas as pd 
+# import numpy as np 
 
 
 # x = [1, 2, 3, 4, 5] 
@@ -78,12 +78,12 @@ import numpy as np
 # plt.grid(axis='y', alpha=0.5) 
 # plt.show() 
 
-views = [320, 450, 400, 390, 410, 470, 500, 490, 480, 510, 
-530, 600, 620, 590, 550, 570, 610, 640, 700, 5000, 1000, 2000, 800, 
-700, 750] 
-plt.figure(figsize=(7, 4)) 
-plt.boxplot(views, vert=False) 
-plt.xlabel('Number of Views') 
-plt.ylabel('Instagram') 
-plt.ylabel('Number of Costumers') 
-plt.grid(axis='y', alpha=0.5)
+# views = [320, 450, 400, 390, 410, 470, 500, 490, 480, 510, 
+# 530, 600, 620, 590, 550, 570, 610, 640, 700, 5000, 1000, 2000, 800, 
+# 700, 750] 
+# plt.figure(figsize=(7, 4)) 
+# plt.boxplot(views, vert=False) 
+# plt.xlabel('Number of Views') 
+# plt.ylabel('Instagram') 
+# plt.ylabel('Number of Costumers') 
+# plt.grid(axis='y', alpha=0.5)
